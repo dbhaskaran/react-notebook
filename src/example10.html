@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React Palette</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <style>
+  #container {
+    height: 500px;
+    widht: 550px;
+    padding: 0px;
+    background-color: #9c7942;
+    box-shadow: 0px 0px 5px #666;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 13px;
+    margin: 0px;
+  }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+  class Dog extends React.Component {
+    render() {
+      var petStyle = {
+        height: 200,
+        width: 150,
+        padding: 0,
+        backgroundColor: "#6c563d",
+        boxShadow: "0px 0px 5px #666",
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        padding: 13,
+        margin: 0,
+        textAlign: "center"
+      };
+      return (
+        <div style={petStyle}>
+          <h4>Dog</h4>
+          <p>{this.props.breed}</p>
+          <p>{this.props.type}</p>
+          <p>{this.props.origin}</p>
+        </div>
+      );
+    }
+  }
+  class Canine extends React.Component {
+    render() {
+      var canineStyle = {
+        height: 300,
+        width: 350,
+        padding: 0,
+        backgroundColor: "#bbb7a7",
+        boxShadow: "0px 0px 5px #666",
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        padding: 13,
+        margin: 0,
+        textAlign: "center"
+      };
+      return (
+        <div style={canineStyle}>
+          <h3>Canine</h3>
+          <Dog {...this.props} />
+        </div>
+      );
+    }
+  }
+  class Animal extends React.Component {
+    render() {
+      var animalStyle = {
+        height: 400,
+        width: 450,
+        padding: 0,
+        backgroundColor: "#eaebf0",
+        boxShadow: "0px 0px 5px #666",
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        padding: 13,
+        margin: 0,
+        textAlign: "center"
+      };
+      return (
+        <div style={animalStyle}>
+          <h2>Animal</h2>
+          <Canine {...this.props} />
+        </div>
+      );
+    }
+  }
+  ReactDOM.render(
+    <div>
+      <h1>Root</h1>
+      <Animal breed="Beagle" type="Hound" origin="England"/>
+    </div>,
+    document.querySelector("#container")
+  );
+  </script>
+</body>
+</html>

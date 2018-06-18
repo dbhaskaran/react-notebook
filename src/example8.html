@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React Palette</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <style>
+  #container {
+    padding: 50px;
+    background-color: #FFF;
+  }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+  class Square extends React.Component {
+    render() {
+      var squareStyle= {
+        height: 150,
+        backgroundColor: "#e9e7ce"
+      };
+      return (
+        <div style={squareStyle}>
+        </div>
+      );
+    }
+  }
+
+  class Label extends React.Component {
+    render() {
+      var labelStyle = {
+        fontFamily: "sans-serif",
+        fontWeight: "bold",
+        padding: 13,
+        margin: 0,
+        textAlign: "center"
+      };
+      return (
+        <p style={labelStyle}>#E9E7CE</p>
+      );
+    }
+  }
+
+  class Card extends React.Component {
+    render() {
+      var cardStyle = {
+        height: 200,
+        width: 150,
+        padding: 0,
+        backgroundColor: "#FFF",
+        boxShadow: "0px 0px 5px #666"
+      };
+
+      return (
+        <div  style={cardStyle}>
+          <Square/>
+          <Label/>
+        </div>
+      );
+    }
+  }
+  ReactDOM.render(
+    <div>
+      <Card/>
+    </div>,
+    document.querySelector("#container")
+  );
+  </script>
+</body>
+</html>
